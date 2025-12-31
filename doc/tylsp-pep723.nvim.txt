@@ -64,16 +64,12 @@ setup({config})
     {config}  (table|nil)  Configuration options
 
   Options: ~
-    {enabled}    (boolean)  Enable or disable the plugin.
-                            Default: `true`
-
     {log_level}  (integer)  Logging level for the plugin. Set to
                             `vim.log.levels.DEBUG` for troubleshooting.
                             Default: `vim.log.levels.INFO`
 
   Default configuration: >lua
     require("tylsp-pep723").setup({
-      enabled = true,
       log_level = vim.log.levels.INFO,
     })
 <

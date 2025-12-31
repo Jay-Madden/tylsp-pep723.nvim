@@ -5,13 +5,11 @@ local lib = require("tylsp-pep723.lib")
 local M = {}
 
 ---@class TylspPep723ConfigInternal
----@field enabled boolean
 ---@field log_level integer
 
 ---@return TylspPep723ConfigInternal
 function M.get_default_config()
   local config = {
-    enabled = true,
     log_level = vim.log.levels.INFO,
   }
 
@@ -19,7 +17,6 @@ function M.get_default_config()
 end
 
 ---@class TylspPep723Config
----@field enabled boolean|nil
 ---@field log_level integer|nil
 
 ---@param config TylspPep723Config|nil
