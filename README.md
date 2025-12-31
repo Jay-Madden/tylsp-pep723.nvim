@@ -9,7 +9,7 @@ Use this for convenience while we wait on the resolution of https://github.com/a
 * [ty](https://docs.astral.sh/ty/installation/) to be installed and available on your PATH.
 * [uv](https://docs.astral.sh/uv/getting-started/installation/) to be installed and available on your PATH.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > This plugin replaces the native lsp enable for ty
 > Ensure you are not enabling the ty lsp anywhere else.
 > ```diff
