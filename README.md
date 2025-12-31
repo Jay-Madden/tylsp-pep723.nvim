@@ -4,12 +4,10 @@ A VERY small plugin that adds LSP support for [pep-723](https://peps.python.org/
 
 Use this for convenience while we wait on the resolution of https://github.com/astral-sh/ty/issues/691. If you don't want a full plugin dependency
 
-## Installation
+## Requirements
 
-> [!IMPORTANT]
-> Requires [ty](https://docs.astral.sh/ty/installation/) to be installed and available on your PATH.
->
-> Requires [uv](https://docs.astral.sh/uv/getting-started/installation/) to be installed and available on your PATH.
+* [ty](https://docs.astral.sh/ty/installation/) to be installed and available on your PATH.
+* [uv](https://docs.astral.sh/uv/getting-started/installation/) to be installed and available on your PATH.
 
 #### Lazy
 ```lua
