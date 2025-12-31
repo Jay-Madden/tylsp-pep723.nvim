@@ -3,7 +3,6 @@ local M = {}
 M.check = function()
   vim.health.start("tylsp-pep723")
 
-  -- Check for uv installation
   if vim.fn.executable("uv") == 1 then
     vim.health.ok("`uv` is installed")
   else
@@ -13,7 +12,6 @@ M.check = function()
     })
   end
 
-  -- Check for ty installation
   if vim.fn.executable("ty") == 1 then
     vim.health.ok("`ty` is installed")
   else
