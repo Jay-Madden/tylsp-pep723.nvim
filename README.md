@@ -43,3 +43,9 @@ require("tylsp-pep723").setup({
   log_level = vim.log.levels.INFO
 })
 ```
+
+## Health
+
+```
+:checkhealth tylsp-pep723.nvim
+```
