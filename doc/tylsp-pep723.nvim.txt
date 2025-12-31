@@ -1,0 +1,95 @@
+*tylsp-pep723.nvim.txt*
+
+==============================================================================
+CONTENTS                                          *tylsp-pep723.nvim-contents*
+
+  1. Introduction ............................ |tylsp-pep723.nvim-introduction|
+  2. Requirements ............................ |tylsp-pep723.nvim-requirements|
+  3. Installation ............................ |tylsp-pep723.nvim-installation|
+  4. Configuration ........................... |tylsp-pep723.nvim-configuration|
+  5. Health Check ............................ |tylsp-pep723.nvim-health|
+
+==============================================================================
+1. INTRODUCTION                               *tylsp-pep723.nvim-introduction*
+
+tylsp-pep723.nvim is a minimal plugin that adds LSP support for PEP-723
+inline metadata scripts via the ty language server.
+
+For PEP-723 scripts (files starting with `# /// script`), the plugin uses
+`uvx --with-requirements` to create an ephemeral virtual environment with
+the script's dependencies before starting the ty LSP.
+
+For regular Python files, the plugin starts the standard ty LSP.
+
+Note: This plugin replaces the native LSP enable for ty. See
+|tylsp-pep723.nvim-configuration| for details.
+
+==============================================================================
+2. REQUIREMENTS                               *tylsp-pep723.nvim-requirements*
+
+The following tools must be installed and available on your PATH:
+
+- ty: https://docs.astral.sh/ty/installation/
+- uv: https://docs.astral.sh/uv/getting-started/installation/
+
+Run `:checkhealth tylsp-pep723` to verify your installation.
+
+==============================================================================
+3. INSTALLATION                               *tylsp-pep723.nvim-installation*
+
+Using lazy.nvim: >lua
+  return {
+    "Jay-Madden/tylsp-pep723.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("tylsp-pep723").setup({})
+    end
+  }
+<
+
+IMPORTANT: This plugin manages the ty LSP startup automatically. You must
+NOT have `vim.lsp.enable("ty")` elsewhere in your configuration. Remove it
+if present: >diff
+  - vim.lsp.enable("ty")
+<
+
+==============================================================================
+4. CONFIGURATION                             *tylsp-pep723.nvim-configuration*
+
+setup({config})
+
+  Configure the plugin with the given options.
+
+  Parameters: ~
+    {config}  (table|nil)  Configuration options
+
+  Options: ~
+    {enabled}    (boolean)  Enable or disable the plugin.
+                            Default: `true`
+
+    {log_level}  (integer)  Logging level for the plugin. Set to
+                            `vim.log.levels.DEBUG` for troubleshooting.
+                            Default: `vim.log.levels.INFO`
+
+  Default configuration: >lua
+    require("tylsp-pep723").setup({
+      enabled = true,
+      log_level = vim.log.levels.INFO,
+    })
+<
+
+==============================================================================
+5. HEALTH CHECK                                     *tylsp-pep723.nvim-health*
+
+Run the health check to verify your installation: >vim
+  :checkhealth tylsp-pep723
+<
+
+The health check verifies:
+
+- `uv` is installed and on PATH
+- `ty` is installed and on PATH
+- `ty` LSP is not globally enabled elsewhere in your config
+
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl:

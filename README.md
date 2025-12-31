@@ -1,6 +1,6 @@
 # tylsp-pep723.nvim
 
-A VERY small plugin that adds LSP support for [pep-723](https://peps.python.org/pep-0723/) inline metadata scripts via ty lsp.
+A **VERY** small plugin that adds LSP support for [pep-723](https://peps.python.org/pep-0723/) inline metadata scripts via ty lsp.
 
 Use this for convenience while we wait on the resolution of https://github.com/astral-sh/ty/issues/691. If you don't want a full plugin dependency the autocommand to set this up can be trivially copied from `lua/tylsp-pep723/lib.lua`.
 
@@ -15,6 +15,8 @@ Use this for convenience while we wait on the resolution of https://github.com/a
 > ```diff
 > - vim.lsp.enable("ty")
 > ```
+
+## Installation 
 
 #### Lazy
 ```lua

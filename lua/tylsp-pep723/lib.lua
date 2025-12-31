@@ -4,14 +4,16 @@ function M.setup_autocmd()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function(_)
-
       local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] or ""
       local has_inline_metadata = first_line:match("^# /// script")
 
       local cmd, name, root_dir
       if has_inline_metadata then
         if vim.lsp.is_enabled("ty") then
-          log("TylspPep723: failed to start ephemeral venv, 'ty' LSP is already globally enabled", vim.log.levels.ERROR)
+          log(
+            "TylspPep723: failed to start ephemeral venv, 'ty' LSP is already globally enabled",
+            vim.log.levels.ERROR
+          )
           return
         end
 
@@ -25,7 +27,6 @@ function M.setup_autocmd()
         cmd = { "uvx", "--with-requirements", relpath, "ty", "server" }
         root_dir = vim.fn.fnamemodify(filepath, ":h")
       else
-
         if vim.lsp.is_enabled("ty") then
           log("TylspPep723: 'ty' LSP is already globally enabled", vim.log.levels.WARN)
           return
