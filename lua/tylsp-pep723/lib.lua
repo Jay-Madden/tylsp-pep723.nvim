@@ -27,11 +27,6 @@ function M.setup_autocmd()
         cmd = { "uvx", "--with-requirements", relpath, "ty", "server" }
         root_dir = vim.fn.fnamemodify(filepath, ":h")
       else
-        if vim.lsp.is_enabled("ty") then
-          log("TylspPep723: 'ty' LSP is already globally enabled", vim.log.levels.WARN)
-          return
-        end
-
         -- From https://github.com/neovim/nvim-lspconfig/blob/master/lsp/ty.lua
         name = "ty"
         cmd = { "ty", "server" }
